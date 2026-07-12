@@ -32,6 +32,17 @@ const THEMES = [
 ];
 const THEME_STORAGE_KEY = "nutriplan-theme";
 
+// Same hex values as the CSS custom properties for each theme, converted to
+// RGB triples for jsPDF (which can't read CSS variables). Keeping these in
+// sync with the CSS above means the downloaded PDF always matches whichever
+// theme is active on screen.
+const THEME_PDF_COLORS = {
+  sage: { leaf: [47, 82, 51], citrus: [214, 88, 31], berry: [140, 47, 73] },
+  ocean: { leaf: [14, 110, 112], citrus: [217, 138, 43], berry: [27, 75, 107] },
+  sunset: { leaf: [142, 59, 93], citrus: [198, 73, 31], berry: [110, 37, 64] },
+  orchid: { leaf: [107, 63, 118], citrus: [217, 164, 65], berry: [183, 92, 122] },
+};
+
 function ThemeSwitcher({ theme, setTheme }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -516,7 +527,7 @@ function FactsPanel({ calories = 2150, protein = 35, carb = 45, fat = 20 }) {
   ];
   return (
     <div className="facts-panel">
-      <div className="facts-eyebrow">Daily Values <span>Your Plate</span></div>
+      <div className="facts-eyebrow">Daily Values <span>— Your Plate</span></div>
       <div className="facts-rule thick" />
       <div className="facts-cal-row">
         <span className="facts-cal-label">Calories</span>
@@ -533,7 +544,7 @@ function FactsPanel({ calories = 2150, protein = 35, carb = 45, fat = 20 }) {
         </div>
       ))}
       <div className="facts-rule thick" />
-      <p className="facts-footnote">Your exact numbers are calculated after the form.</p>
+      <p className="facts-footnote">*Illustrative split — your exact numbers are calculated after the form.</p>
     </div>
   );
 }
@@ -555,7 +566,7 @@ function SealBadge() {
         </defs>
         <text fontSize="6.6" fontWeight="700" letterSpacing="2" fill="var(--text)">
           <textPath href="#sealCircle" startOffset="0%">
-            FRESH PLAN DAILY • NO SIGNUP • 100% FREE •&#160;
+            FRESH PLAN DAILY • NO SIGN-UP • 100% FREE •&#160;
           </textPath>
         </text>
       </svg>
@@ -625,20 +636,20 @@ function Landing({ onStart, theme, setTheme }) {
   }, []);
 
   const features = [
-    { icon: Sparkles, title: "Science Backed Numbers", body: "BMI, BMR and TDEE calculated with the Mifflin St Jeor equation the same standard dietitians use." },
-    { icon: Utensils, title: "A Full Week, Never Repeated", body: "Six meal slots a day, seven distinct days built from a real Indian forward food library." },
+    { icon: Sparkles, title: "Science-Backed Numbers", body: "BMI, BMR and TDEE calculated with the Mifflin-St Jeor equation — the same standard dietitians use." },
+    { icon: Utensils, title: "A Full Week, Never Repeated", body: "Six meal slots a day, seven distinct days — built from a real Indian-forward food library." },
     { icon: Activity, title: "Built Around Your Body", body: "Every gram of protein, carb and fat is tuned to your goal, activity level, and lifestyle." },
     { icon: ShieldCheck, title: "Nothing To Sign Up For", body: "No accounts, no passwords, no data stored anywhere. Close the tab and it's gone." },
   ];
   const faqs = [
-    { q: "Do I need to create an account?", a: "No. NutriNavigator works instantly for every visitor no login, no email, no OTP." },
+    { q: "Do I need to create an account?", a: "No. NutriPlan AI works instantly for every visitor — no login, no email, no OTP." },
     { q: "Is my data stored anywhere?", a: "No. Everything is calculated in your browser for this session only and is never saved to a server." },
-    { q: "What formula is used for calories?", a: "We use the Mifflin St Jeor equation for BMR, then apply standard activity multipliers to estimate your TDEE." },
+    { q: "What formula is used for calories?", a: "We use the Mifflin-St Jeor equation for BMR, then apply standard activity multipliers to estimate your TDEE." },
     { q: "Can I use this if I have a medical condition?", a: "We include general guidance for common conditions, but always consult a doctor or registered dietitian for medical advice." },
-    { q: "Is this app free?", a: "Completely free no ads, no payment gateway, no subscriptions." },
+    { q: "Is this app free?", a: "Completely free — no ads, no payment gateway, no subscriptions." },
   ];
   const testimonials = [
-    { name: "Ananya R.", role: "Lost 6kg in 10 weeks", quote: "The weekly planner meant I never got bored and never once ate the same dinner twice." },
+    { name: "Ananya R.", role: "Lost 6kg in 10 weeks", quote: "The weekly planner meant I never got bored — and never once ate the same dinner twice." },
     { name: "Karthik M.", role: "Muscle gain, non-vegetarian", quote: "Seeing my protein target broken down meal by meal made hitting it effortless." },
     { name: "Priya S.", role: "Vegan, maintaining weight", quote: "First planner that actually understood vegan protein sources beyond just tofu." },
   ];
@@ -674,15 +685,15 @@ function Landing({ onStart, theme, setTheme }) {
         <header className="hero">
           <HeroMesh />
           <div className={`hero-copy ${loaded ? "loaded" : ""}`}>
-            <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No signup · Instant results</div>
+            <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No sign-up · Instant results</div>
             <h1>Your plate,<br /><span className="hero-gradient-text">precisely planned.</span></h1>
             <p className="hero-sub">
-              Tell us your body and your goal. In seconds, NutriNavigator builds a full week of meals
+              Tell us your body and your goal. In seconds, NutriPlan AI builds a full week of meals —
               timed, measured, and matched to exactly how many calories and grams of protein you need.
             </p>
             <div className="hero-cta-row">
               <button className="btn btn-primary btn-lg" onClick={onStart}>Generate My Diet Plan <ArrowRight size={18} /></button>
-              <span className="hero-note">Under 2 minutes · No email required</span>
+              <span className="hero-note">Takes under 2 minutes · No email required</span>
             </div>
             <div className="hero-badges">
               <span><Check size={14} /> No login</span>
@@ -727,9 +738,9 @@ function Landing({ onStart, theme, setTheme }) {
         <Reveal as="section" className="section" id="how">
           <h2 className="section-title">Three steps to your week of meals</h2>
           <div className="steps-grid">
-            <div className="panel-card"><span className="step-num">Body</span><h3>Tell us about you</h3><p>Age, height, weight, activity level and dietary preference four short steps.</p></div>
-            <div className="panel-card"><span className="step-num">Science</span><h3>We calculate your numbers</h3><p>BMI, BMR, TDEE, and precise macro targets using the Mifflin St Jeor equation.</p></div>
-            <div className="panel-card"><span className="step-num">Plate</span><h3>Get your full week</h3><p>Seven days, six meal slots, zero repeats with alternatives for every dish.</p></div>
+            <div className="panel-card"><span className="step-num">Body</span><h3>Tell us about you</h3><p>Age, height, weight, activity level and dietary preference — four short steps.</p></div>
+            <div className="panel-card"><span className="step-num">Science</span><h3>We calculate your numbers</h3><p>BMI, BMR, TDEE, and precise macro targets using the Mifflin-St Jeor equation.</p></div>
+            <div className="panel-card"><span className="step-num">Plate</span><h3>Get your full week</h3><p>Seven days, six meal slots, zero repeats — with alternatives for every dish.</p></div>
           </div>
         </Reveal>
 
@@ -780,9 +791,9 @@ function Landing({ onStart, theme, setTheme }) {
         </Reveal>
 
         <footer className="footer">
-          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriNavigator</span></div>
-          <p>Educational tool only not a substitute for professional medical or dietary advice.</p>
-          <p className="footer-copy">© {new Date().getFullYear()} NutriNavigator. Built for everyone, free of charge.</p>
+          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriPlan <em>AI</em></span></div>
+          <p>Educational tool only — not a substitute for professional medical or dietary advice.</p>
+          <p className="footer-copy">© {new Date().getFullYear()} NutriPlan AI. Built for everyone, free of charge.</p>
         </footer>
       </div>
     </div>
@@ -965,141 +976,218 @@ function FormFlow({ onComplete, onCancel }) {
 }
 
 /* ============================== PDF GENERATION ============================== */
-function generatePDF(form, results, week) {
+function generatePDF(form, results, week, theme) {
   const doc = new jsPDF({ unit: "mm", format: "a4" });
   const pageW = doc.internal.pageSize.getWidth();
   const pageH = doc.internal.pageSize.getHeight();
   const marginX = 16;
+  const contentW = pageW - marginX * 2;
   let y = 0;
   let page = 1;
 
-  const LEAF = [53, 99, 63], CITRUS = [214, 88, 32], INK = [20, 23, 15], MUTED = [107, 112, 98], LINE = [230, 226, 211];
+  const C = THEME_PDF_COLORS[theme] || THEME_PDF_COLORS.sage;
+  const LEAF = C.leaf, CITRUS = C.citrus, BERRY = C.berry;
+  const INK = [24, 26, 20], MUTED = [107, 112, 98], LINE = [230, 226, 211], CARD_BG = [252, 251, 246];
+  const SLOT_ACCENT = {
+    breakfast: CITRUS, midMorning: CITRUS, lunch: LEAF,
+    eveningSnack: BERRY, dinner: BERRY, beforeBed: LEAF,
+  };
+  const BOTTOM_MARGIN = 16;
 
   function drawFooter() {
     doc.setFontSize(8);
     doc.setTextColor(...MUTED);
     doc.setFont("helvetica", "normal");
-    doc.text("NutriPlan AI - Educational tool only, not a substitute for professional medical advice.", marginX, pageH - 10);
-    doc.text(`Page ${page}`, pageW - marginX, pageH - 10, { align: "right" });
+    doc.text("NutriPlan AI - Educational tool only, not a substitute for professional medical advice.", marginX, pageH - 9);
+    doc.text(`Page ${page}`, pageW - marginX, pageH - 9, { align: "right" });
   }
+  // Only breaks to a new page when the next block genuinely won't fit —
+  // this is what stops days from each burning a mostly-empty page.
   function ensureSpace(h) {
-    if (y + h > pageH - 18) {
+    if (y + h > pageH - BOTTOM_MARGIN) {
       drawFooter();
       doc.addPage();
       page += 1;
-      y = 20;
+      y = 16;
     }
   }
+  function textLines(lines, x, startY, lineH, color, font, size) {
+    doc.setFont(font[0], font[1]);
+    doc.setFontSize(size);
+    doc.setTextColor(...color);
+    lines.forEach((line, i) => doc.text(line, x, startY + i * lineH));
+    return lines.length * lineH;
+  }
 
-  // ---- Cover / profile ----
+  /* ---------------- Cover / profile (page 1) ---------------- */
   doc.setFillColor(...LEAF);
-  doc.rect(0, 0, pageW, 34, "F");
+  doc.rect(0, 0, pageW, 32, "F");
   doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(22);
-  doc.text("NutriPlan AI", marginX, 16);
+  doc.setFontSize(21);
+  doc.text("NutriPlan AI", marginX, 15);
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(11);
-  doc.text("Your Personalised 7-Day Diet Plan", marginX, 24);
-  doc.setFontSize(9);
-  doc.text(`Generated on ${new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}`, marginX, 30);
+  doc.setFontSize(10.5);
+  doc.text("Your Personalised 7-Day Diet Plan", marginX, 22.5);
+  doc.setFontSize(8.5);
+  doc.text(`Generated on ${new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}`, marginX, 28);
 
-  y = 44;
-  doc.setTextColor(...INK);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(13);
-  doc.text("Your Profile", marginX, y);
-  y += 7;
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(10);
-  doc.setTextColor(...MUTED);
+  y = 40;
   const goalLabel = form.goal === "lose" ? "Lose Weight" : form.goal === "gain" ? "Gain Weight" : "Maintain Weight";
-  doc.text(`${form.age} yrs   |   ${form.gender === "male" ? "Male" : "Female"}   |   ${formatHeight(form)}   |   ${form.weight} kg   |   Goal: ${goalLabel}`, marginX, y);
-  y += 10;
+  doc.setFillColor(...CARD_BG);
+  doc.setDrawColor(...LINE);
+  doc.roundedRect(marginX, y, contentW, 14, 2.2, 2.2, "FD");
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10.5);
+  doc.setTextColor(...INK);
+  doc.text(`${form.age} yrs   ·   ${form.gender === "male" ? "Male" : "Female"}   ·   ${formatHeight(form)}   ·   ${form.weight} kg`, marginX + 5, y + 6);
+  doc.setTextColor(...CITRUS);
+  doc.setFontSize(9.5);
+  doc.text(`Goal: ${goalLabel}`, marginX + 5, y + 11);
+  y += 20;
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(12.5);
+  doc.setTextColor(...INK);
+  doc.text("Your Daily Targets", marginX, y);
+  y += 6;
 
   const stats = [
-    ["BMI", `${results.bmi} (${results.bmiCategory})`], ["BMR", `${results.bmr} kcal`],
-    ["Daily Calories", `${results.dailyCalories} kcal`], ["Protein Target", `${results.proteinG} g`],
-    ["Carbs Target", `${results.carbG} g`], ["Fat Target", `${results.fatG} g`],
-    ["Water Intake", `${results.waterL} L`], ["Fiber Intake", `${results.fiberG} g`],
+    ["BMI", `${results.bmi} (${results.bmiCategory})`, LEAF], ["BMR", `${results.bmr} kcal`, CITRUS],
+    ["Daily Calories", `${results.dailyCalories} kcal`, BERRY], ["Protein Target", `${results.proteinG} g`, LEAF],
+    ["Carbs Target", `${results.carbG} g`, CITRUS], ["Fat Target", `${results.fatG} g`, BERRY],
+    ["Water Intake", `${results.waterL} L`, LEAF], ["Fiber Intake", `${results.fiberG} g`, CITRUS],
   ];
-  const gap = 4, cols = 4, colW = (pageW - marginX * 2 - (cols - 1) * gap) / cols, rowH = 20;
+  const gap = 3.5, cols = 4, colW = (contentW - (cols - 1) * gap) / cols, rowH = 19;
   stats.forEach((s, i) => {
     const col = i % cols, row = Math.floor(i / cols);
     const x = marginX + col * (colW + gap), yy = y + row * (rowH + gap);
-    doc.setFillColor(250, 249, 242);
+    doc.setFillColor(...CARD_BG);
     doc.setDrawColor(...LINE);
     doc.roundedRect(x, yy, colW, rowH, 2, 2, "FD");
+    doc.setFillColor(...s[2]);
+    doc.rect(x, yy, 1.3, rowH, "F");
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(11);
+    doc.setFontSize(10.5);
     doc.setTextColor(...INK);
-    doc.text(String(s[1]), x + 4, yy + 9);
+    doc.text(String(s[1]), x + 4.5, yy + 8.5);
     doc.setFont("helvetica", "normal");
-    doc.setFontSize(8);
+    doc.setFontSize(7.6);
     doc.setTextColor(...MUTED);
-    doc.text(s[0], x + 4, yy + 15.5);
+    doc.text(s[0], x + 4.5, yy + 14.5);
   });
-  y += 2 * (rowH + gap) + 4;
+  y += 2 * (rowH + gap) + 3;
 
   if (results.calorieDeficit > 0 || results.calorieSurplus > 0) {
-    doc.setFont("helvetica", "italic");
-    doc.setFontSize(9);
-    doc.setTextColor(...MUTED);
     const note = results.calorieDeficit > 0
       ? `Uses a daily deficit of ~${results.calorieDeficit} kcal from a TDEE of ${results.tdee} kcal for steady weight loss.`
       : `Uses a daily surplus of ~${results.calorieSurplus} kcal above a TDEE of ${results.tdee} kcal for healthy weight gain.`;
-    const lines = doc.splitTextToSize(note, pageW - marginX * 2);
-    doc.text(lines, marginX, y);
-    y += lines.length * 4.4;
+    const lines = doc.splitTextToSize(note, contentW - 12);
+    const boxH = lines.length * 4.3 + 6;
+    doc.setFillColor(...CARD_BG);
+    doc.setDrawColor(...LINE);
+    doc.roundedRect(marginX, y, contentW, boxH, 2, 2, "FD");
+    doc.setFillColor(...CITRUS);
+    doc.rect(marginX, y, 1.3, boxH, "F");
+    textLines(lines, marginX + 5, y + 5.5, 4.3, MUTED, ["helvetica", "italic"], 8.8);
+    y += boxH + 8;
+  } else {
+    y += 6;
   }
+
+  // Weekly calorie overview — a compact bar chart, so the cover page carries
+  // real information all the way down instead of trailing off into blank
+  // space above the fold of day 1's content.
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(12.5);
+  doc.setTextColor(...INK);
+  doc.text("Weekly Calorie Overview", marginX, y);
+  y += 7;
+
+  const dayTotals = week.map((d) => d.meals.reduce((s, m) => s + m.cal, 0));
+  const maxCal = Math.max(...dayTotals, 1);
+  const labelW = 24, valueW = 20, trackX = marginX + labelW, trackW = contentW - labelW - valueW;
+  const barH = 4.6, rowGap = 3.2;
+  week.forEach((d, i) => {
+    const rowY = y + i * (barH + rowGap);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(8.5);
+    doc.setTextColor(...INK);
+    doc.text(d.day.slice(0, 3), marginX, rowY + barH - 0.8);
+    doc.setFillColor(240, 237, 227);
+    doc.roundedRect(trackX, rowY, trackW, barH, 1.2, 1.2, "F");
+    const w = Math.max((dayTotals[i] / maxCal) * trackW, 4);
+    doc.setFillColor(...(i % 2 === 0 ? LEAF : CITRUS));
+    doc.roundedRect(trackX, rowY, w, barH, 1.2, 1.2, "F");
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(8);
+    doc.setTextColor(...MUTED);
+    doc.text(`${dayTotals[i]} kcal`, trackX + trackW + valueW - 2, rowY + barH - 0.8, { align: "right" });
+  });
+  y += 7 * (barH + rowGap) + 2;
   drawFooter();
 
-  // ---- Each day ----
-  week.forEach((d) => {
-    doc.addPage(); page += 1; y = 20;
-    doc.setFillColor(...CITRUS);
-    doc.rect(0, 0, pageW, 16, "F");
+  /* ---------------- Meal cards, flowing continuously (no forced page-per-day) ---------------- */
+  week.forEach((d, dayIdx) => {
+    const dayTotal = dayTotals[dayIdx];
+    ensureSpace(45); // keep the day header attached to at least its first card
+    doc.setFillColor(...LEAF);
+    doc.roundedRect(marginX, y, contentW, 11, 2, 2, "F");
     doc.setTextColor(255, 255, 255);
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(13);
-    doc.text(`${d.day} - Meal Plan`, marginX, 11);
-    y = 26;
+    doc.setFontSize(11.5);
+    doc.text(d.day, marginX + 5, y + 7.5);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(8.5);
+    doc.text(`Day ${dayIdx + 1} of 7   ·   ~${dayTotal} kcal`, pageW - marginX - 5, y + 7.5, { align: "right" });
+    y += 11 + 4;
 
     d.meals.forEach((m) => {
-      ensureSpace(36);
+      const padX = 5, padTop = 4.5, padBottom = 4.5;
+      const textW = contentW - padX * 2;
+      const altLines = doc.splitTextToSize(`Alternative: ${m.alt}`, textW);
+      const reasonLines = doc.splitTextToSize(m.reason, textW);
+      const lineHeader = 5.6, lineName = 6, lineQty = 5.2, altLH = 4.1, gapAR = 1.6, reasonLH = 3.9;
+      const cardH = padTop + lineHeader + lineName + lineQty + altLines.length * altLH + gapAR + reasonLines.length * reasonLH + padBottom;
+
+      ensureSpace(cardH + 4);
+      doc.setFillColor(...CARD_BG);
+      doc.setDrawColor(...LINE);
+      doc.setLineWidth(0.3);
+      doc.roundedRect(marginX, y, contentW, cardH, 2.2, 2.2, "FD");
+      doc.setFillColor(...(SLOT_ACCENT[m.slot] || LEAF));
+      doc.rect(marginX + 0.6, y + 1.2, 2.2, cardH - 2.4, "F");
+
+      let ty = y + padTop + 2;
       doc.setFont("helvetica", "bold");
-      doc.setFontSize(10.5);
-      doc.setTextColor(...MUTED);
-      doc.text(`${m.label}   |   ${m.time}`, marginX, y);
-      doc.setTextColor(...CITRUS);
-      doc.text(`${m.cal} kcal`, pageW - marginX, y, { align: "right" });
-      y += 6;
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(12);
-      doc.setTextColor(...INK);
-      doc.text(m.name, marginX, y);
-      y += 5.5;
-      doc.setFont("helvetica", "normal");
       doc.setFontSize(9);
       doc.setTextColor(...MUTED);
-      doc.text(`${m.qty}   |   P ${m.p}g   C ${m.c}g   F ${m.f}g   Fiber ${m.fiber}g`, marginX, y);
-      y += 5.5;
-      const altLines = doc.splitTextToSize(`Alternative: ${m.alt}`, pageW - marginX * 2);
+      doc.text(`${m.label.toUpperCase()}  ·  ${m.time}`, marginX + padX, ty);
+      doc.setTextColor(...CITRUS);
+      doc.text(`${m.cal} kcal`, marginX + contentW - padX, ty, { align: "right" });
+
+      ty += lineHeader;
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11.5);
       doc.setTextColor(...INK);
-      doc.text(altLines, marginX, y);
-      y += altLines.length * 4.4;
-      doc.setFont("helvetica", "italic");
-      doc.setFontSize(8.5);
+      doc.text(m.name, marginX + padX, ty);
+
+      ty += lineName;
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8.6);
       doc.setTextColor(...MUTED);
-      const reasonLines = doc.splitTextToSize(m.reason, pageW - marginX * 2);
-      doc.text(reasonLines, marginX, y);
-      y += reasonLines.length * 4.1 + 4;
-      doc.setDrawColor(...LINE);
-      doc.line(marginX, y, pageW - marginX, y);
-      y += 6;
+      doc.text(`${m.qty}  ·  P ${m.p}g   C ${m.c}g   F ${m.f}g   Fiber ${m.fiber}g`, marginX + padX, ty);
+
+      ty += lineQty;
+      ty += textLines(altLines, marginX + padX, ty, altLH, INK, ["helvetica", "normal"], 8.6);
+
+      ty += gapAR;
+      textLines(reasonLines, marginX + padX, ty, reasonLH, MUTED, ["helvetica", "italic"], 8);
+
+      y += cardH + 4;
     });
-    drawFooter();
   });
+  drawFooter();
 
   const fileSafeDate = new Date().toISOString().slice(0, 10);
   doc.save(`NutriPlan-AI-Diet-Plan-${fileSafeDate}.pdf`);
@@ -1129,7 +1217,7 @@ function Dashboard({ form, onReset, theme, setTheme }) {
     // Defer so the loading state paints before the (synchronous) PDF build runs.
     setTimeout(() => {
       try {
-        generatePDF(form, results, week);
+        generatePDF(form, results, week, theme);
         setToast("Your PDF is downloading…");
       } catch (err) {
         console.error("PDF generation failed:", err);
@@ -1141,7 +1229,7 @@ function Dashboard({ form, onReset, theme, setTheme }) {
   }
   function handleShare() {
     const summary = `NutriPlan AI — My Daily Targets\nCalories: ${results.dailyCalories} kcal\nProtein: ${results.proteinG}g | Carbs: ${results.carbG}g | Fat: ${results.fatG}g\nBMI: ${results.bmi} (${results.bmiCategory})`;
-    if (navigator.share) { navigator.share({ title: "My NutriPlan AI Diet Plan", text: summary }).catch(() => { }); }
+    if (navigator.share) { navigator.share({ title: "My NutriPlan AI Diet Plan", text: summary }).catch(() => {}); }
     else if (navigator.clipboard) { navigator.clipboard.writeText(summary); setToast("Summary copied to clipboard"); }
   }
 
@@ -1239,20 +1327,20 @@ function Dashboard({ form, onReset, theme, setTheme }) {
         {todaysMeals.map((m, i) => {
           const SlotIcon = SLOT_ICON[m.slot];
           return (
-            <div className="meal-card" key={m.slot} style={{ transitionDelay: `${i * 70}ms`, "--slot-color": SLOT_COLOR[m.slot] }}>
-              <div className="meal-card-head">
-                <div className="meal-head-left">
-                  <span className="meal-icon"><SlotIcon size={16} /></span>
-                  <div><span className="meal-slot">{m.label}</span><span className="meal-time">{m.time}</span></div>
-                </div>
-                <span className="meal-cal">{m.cal} kcal</span>
+          <div className="meal-card" key={m.slot} style={{ transitionDelay: `${i * 70}ms`, "--slot-color": SLOT_COLOR[m.slot] }}>
+            <div className="meal-card-head">
+              <div className="meal-head-left">
+                <span className="meal-icon"><SlotIcon size={16} /></span>
+                <div><span className="meal-slot">{m.label}</span><span className="meal-time">{m.time}</span></div>
               </div>
-              <h4>{m.name}</h4>
-              <p className="meal-qty">{m.qty}</p>
-              <div className="macro-row"><span>P {m.p}g</span><span>C {m.c}g</span><span>F {m.f}g</span><span>Fiber {m.fiber}g</span></div>
-              <p className="meal-alt"><strong>Alternative:</strong> {m.alt}</p>
-              <p className="meal-reason">{m.reason}</p>
+              <span className="meal-cal">{m.cal} kcal</span>
             </div>
+            <h4>{m.name}</h4>
+            <p className="meal-qty">{m.qty}</p>
+            <div className="macro-row"><span>P {m.p}g</span><span>C {m.c}g</span><span>F {m.f}g</span><span>Fiber {m.fiber}g</span></div>
+            <p className="meal-alt"><strong>Alternative:</strong> {m.alt}</p>
+            <p className="meal-reason">{m.reason}</p>
+          </div>
           );
         })}
       </section>
