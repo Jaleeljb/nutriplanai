@@ -435,7 +435,7 @@ function FactsPanel({ calories = 2150, protein = 35, carb = 45, fat = 20 }) {
         </div>
       ))}
       <div className="facts-rule thick" />
-      <p className="facts-footnote">*Illustrative split — your exact numbers are calculated after the form.</p>
+      <p className="facts-footnote">Your exact numbers are calculated after the form.</p>
     </div>
   );
 }
