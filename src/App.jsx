@@ -516,7 +516,7 @@ function FactsPanel({ calories = 2150, protein = 35, carb = 45, fat = 20 }) {
   ];
   return (
     <div className="facts-panel">
-      <div className="facts-eyebrow">Daily Values <span>— Your Plate</span></div>
+      <div className="facts-eyebrow">Daily Values <span>Your Plate</span></div>
       <div className="facts-rule thick" />
       <div className="facts-cal-row">
         <span className="facts-cal-label">Calories</span>
@@ -533,7 +533,7 @@ function FactsPanel({ calories = 2150, protein = 35, carb = 45, fat = 20 }) {
         </div>
       ))}
       <div className="facts-rule thick" />
-      <p className="facts-footnote">*Illustrative split — your exact numbers are calculated after the form.</p>
+      <p className="facts-footnote">Your exact numbers are calculated after the form.</p>
     </div>
   );
 }
@@ -555,7 +555,7 @@ function SealBadge() {
         </defs>
         <text fontSize="6.6" fontWeight="700" letterSpacing="2" fill="var(--text)">
           <textPath href="#sealCircle" startOffset="0%">
-            FRESH PLAN DAILY • NO SIGN-UP • 100% FREE •&#160;
+            FRESH PLAN DAILY • NO SIGNUP • 100% FREE •&#160;
           </textPath>
         </text>
       </svg>
@@ -625,20 +625,20 @@ function Landing({ onStart, theme, setTheme }) {
   }, []);
 
   const features = [
-    { icon: Sparkles, title: "Science-Backed Numbers", body: "BMI, BMR and TDEE calculated with the Mifflin-St Jeor equation — the same standard dietitians use." },
-    { icon: Utensils, title: "A Full Week, Never Repeated", body: "Six meal slots a day, seven distinct days — built from a real Indian-forward food library." },
+    { icon: Sparkles, title: "Science Backed Numbers", body: "BMI, BMR and TDEE calculated with the Mifflin St Jeor equation the same standard dietitians use." },
+    { icon: Utensils, title: "A Full Week, Never Repeated", body: "Six meal slots a day, seven distinct days built from a real Indian forward food library." },
     { icon: Activity, title: "Built Around Your Body", body: "Every gram of protein, carb and fat is tuned to your goal, activity level, and lifestyle." },
     { icon: ShieldCheck, title: "Nothing To Sign Up For", body: "No accounts, no passwords, no data stored anywhere. Close the tab and it's gone." },
   ];
   const faqs = [
-    { q: "Do I need to create an account?", a: "No. NutriPlan AI works instantly for every visitor — no login, no email, no OTP." },
+    { q: "Do I need to create an account?", a: "No. NutriNavigator works instantly for every visitor no login, no email, no OTP." },
     { q: "Is my data stored anywhere?", a: "No. Everything is calculated in your browser for this session only and is never saved to a server." },
-    { q: "What formula is used for calories?", a: "We use the Mifflin-St Jeor equation for BMR, then apply standard activity multipliers to estimate your TDEE." },
+    { q: "What formula is used for calories?", a: "We use the Mifflin St Jeor equation for BMR, then apply standard activity multipliers to estimate your TDEE." },
     { q: "Can I use this if I have a medical condition?", a: "We include general guidance for common conditions, but always consult a doctor or registered dietitian for medical advice." },
-    { q: "Is this app free?", a: "Completely free — no ads, no payment gateway, no subscriptions." },
+    { q: "Is this app free?", a: "Completely free no ads, no payment gateway, no subscriptions." },
   ];
   const testimonials = [
-    { name: "Ananya R.", role: "Lost 6kg in 10 weeks", quote: "The weekly planner meant I never got bored — and never once ate the same dinner twice." },
+    { name: "Ananya R.", role: "Lost 6kg in 10 weeks", quote: "The weekly planner meant I never got bored and never once ate the same dinner twice." },
     { name: "Karthik M.", role: "Muscle gain, non-vegetarian", quote: "Seeing my protein target broken down meal by meal made hitting it effortless." },
     { name: "Priya S.", role: "Vegan, maintaining weight", quote: "First planner that actually understood vegan protein sources beyond just tofu." },
   ];
@@ -674,15 +674,15 @@ function Landing({ onStart, theme, setTheme }) {
         <header className="hero">
           <HeroMesh />
           <div className={`hero-copy ${loaded ? "loaded" : ""}`}>
-            <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No sign-up · Instant results</div>
+            <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No signup · Instant results</div>
             <h1>Your plate,<br /><span className="hero-gradient-text">precisely planned.</span></h1>
             <p className="hero-sub">
-              Tell us your body and your goal. In seconds, NutriPlan AI builds a full week of meals —
+              Tell us your body and your goal. In seconds, NutriNavigator builds a full week of meals
               timed, measured, and matched to exactly how many calories and grams of protein you need.
             </p>
             <div className="hero-cta-row">
               <button className="btn btn-primary btn-lg" onClick={onStart}>Generate My Diet Plan <ArrowRight size={18} /></button>
-              <span className="hero-note">Takes under 2 minutes · No email required</span>
+              <span className="hero-note">Under 2 minutes · No email required</span>
             </div>
             <div className="hero-badges">
               <span><Check size={14} /> No login</span>
@@ -727,9 +727,9 @@ function Landing({ onStart, theme, setTheme }) {
         <Reveal as="section" className="section" id="how">
           <h2 className="section-title">Three steps to your week of meals</h2>
           <div className="steps-grid">
-            <div className="panel-card"><span className="step-num">Body</span><h3>Tell us about you</h3><p>Age, height, weight, activity level and dietary preference — four short steps.</p></div>
-            <div className="panel-card"><span className="step-num">Science</span><h3>We calculate your numbers</h3><p>BMI, BMR, TDEE, and precise macro targets using the Mifflin-St Jeor equation.</p></div>
-            <div className="panel-card"><span className="step-num">Plate</span><h3>Get your full week</h3><p>Seven days, six meal slots, zero repeats — with alternatives for every dish.</p></div>
+            <div className="panel-card"><span className="step-num">Body</span><h3>Tell us about you</h3><p>Age, height, weight, activity level and dietary preference four short steps.</p></div>
+            <div className="panel-card"><span className="step-num">Science</span><h3>We calculate your numbers</h3><p>BMI, BMR, TDEE, and precise macro targets using the Mifflin St Jeor equation.</p></div>
+            <div className="panel-card"><span className="step-num">Plate</span><h3>Get your full week</h3><p>Seven days, six meal slots, zero repeats with alternatives for every dish.</p></div>
           </div>
         </Reveal>
 
@@ -780,9 +780,9 @@ function Landing({ onStart, theme, setTheme }) {
         </Reveal>
 
         <footer className="footer">
-          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriPlan <em>AI</em></span></div>
-          <p>Educational tool only — not a substitute for professional medical or dietary advice.</p>
-          <p className="footer-copy">© {new Date().getFullYear()} NutriPlan AI. Built for everyone, free of charge.</p>
+          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriNavigator</span></div>
+          <p>Educational tool only not a substitute for professional medical or dietary advice.</p>
+          <p className="footer-copy">© {new Date().getFullYear()} NutriNavigator. Built for everyone, free of charge.</p>
         </footer>
       </div>
     </div>
@@ -1141,7 +1141,7 @@ function Dashboard({ form, onReset, theme, setTheme }) {
   }
   function handleShare() {
     const summary = `NutriPlan AI — My Daily Targets\nCalories: ${results.dailyCalories} kcal\nProtein: ${results.proteinG}g | Carbs: ${results.carbG}g | Fat: ${results.fatG}g\nBMI: ${results.bmi} (${results.bmiCategory})`;
-    if (navigator.share) { navigator.share({ title: "My NutriPlan AI Diet Plan", text: summary }).catch(() => {}); }
+    if (navigator.share) { navigator.share({ title: "My NutriPlan AI Diet Plan", text: summary }).catch(() => { }); }
     else if (navigator.clipboard) { navigator.clipboard.writeText(summary); setToast("Summary copied to clipboard"); }
   }
 
@@ -1239,20 +1239,20 @@ function Dashboard({ form, onReset, theme, setTheme }) {
         {todaysMeals.map((m, i) => {
           const SlotIcon = SLOT_ICON[m.slot];
           return (
-          <div className="meal-card" key={m.slot} style={{ transitionDelay: `${i * 70}ms`, "--slot-color": SLOT_COLOR[m.slot] }}>
-            <div className="meal-card-head">
-              <div className="meal-head-left">
-                <span className="meal-icon"><SlotIcon size={16} /></span>
-                <div><span className="meal-slot">{m.label}</span><span className="meal-time">{m.time}</span></div>
+            <div className="meal-card" key={m.slot} style={{ transitionDelay: `${i * 70}ms`, "--slot-color": SLOT_COLOR[m.slot] }}>
+              <div className="meal-card-head">
+                <div className="meal-head-left">
+                  <span className="meal-icon"><SlotIcon size={16} /></span>
+                  <div><span className="meal-slot">{m.label}</span><span className="meal-time">{m.time}</span></div>
+                </div>
+                <span className="meal-cal">{m.cal} kcal</span>
               </div>
-              <span className="meal-cal">{m.cal} kcal</span>
+              <h4>{m.name}</h4>
+              <p className="meal-qty">{m.qty}</p>
+              <div className="macro-row"><span>P {m.p}g</span><span>C {m.c}g</span><span>F {m.f}g</span><span>Fiber {m.fiber}g</span></div>
+              <p className="meal-alt"><strong>Alternative:</strong> {m.alt}</p>
+              <p className="meal-reason">{m.reason}</p>
             </div>
-            <h4>{m.name}</h4>
-            <p className="meal-qty">{m.qty}</p>
-            <div className="macro-row"><span>P {m.p}g</span><span>C {m.c}g</span><span>F {m.f}g</span><span>Fiber {m.fiber}g</span></div>
-            <p className="meal-alt"><strong>Alternative:</strong> {m.alt}</p>
-            <p className="meal-reason">{m.reason}</p>
-          </div>
           );
         })}
       </section>
