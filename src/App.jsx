@@ -457,7 +457,7 @@ function SealBadge() {
         </defs>
         <text fontSize="6.6" fontWeight="700" letterSpacing="2" fill="var(--text)">
           <textPath href="#sealCircle" startOffset="0%">
-            FRESH PLAN DAILY • NO SIGN-UP • 100% FREE •&#160;
+            FRESH PLAN DAILY • NO SIGNUP • 100% FREE •&#160;
           </textPath>
         </text>
       </svg>
@@ -527,21 +527,21 @@ function Landing({ onStart, theme, setTheme }) {
   }, []);
 
   const features = [
-    { icon: Sparkles, title: "Science-Backed Numbers", body: "BMI, BMR and TDEE calculated with the Mifflin-St Jeor equation — the same standard dietitians use." },
-    { icon: Utensils, title: "A Full Week, Never Repeated", body: "Six meal slots a day, seven distinct days — built from a real Indian-forward food library." },
+    { icon: Sparkles, title: "Science-Backed Numbers", body: "BMI, BMR and TDEE calculated with the Mifflin-St Jeor equation the same standard dietitians use." },
+    { icon: Utensils, title: "A Full Week, Never Repeated", body: "Six meal slots a day, seven distinct days built from a real Indian forward food library." },
     { icon: Activity, title: "Built Around Your Body", body: "Every gram of protein, carb and fat is tuned to your goal, activity level, and lifestyle." },
     { icon: ShieldCheck, title: "Nothing To Sign Up For", body: "No accounts, no passwords, no data stored anywhere. Close the tab and it's gone." },
   ];
   const faqs = [
-    { q: "Do I need to create an account?", a: "No. NutriPlan AI works instantly for every visitor — no login, no email, no OTP." },
+    { q: "Do I need to create an account?", a: "No. NutriPlan AI works instantly for every visitor no login, no email, no OTP." },
     { q: "Is my data stored anywhere?", a: "No. Everything is calculated in your browser for this session only and is never saved to a server." },
-    { q: "What formula is used for calories?", a: "We use the Mifflin-St Jeor equation for BMR, then apply standard activity multipliers to estimate your TDEE." },
+    { q: "What formula is used for calories?", a: "We use the Mifflin St Jeor equation for BMR, then apply standard activity multipliers to estimate your TDEE." },
     { q: "Can I use this if I have a medical condition?", a: "We include general guidance for common conditions, but always consult a doctor or registered dietitian for medical advice." },
-    { q: "Is this app free?", a: "Completely free — no ads, no payment gateway, no subscriptions." },
+    { q: "Is this app free?", a: "Completely free no ads, no payment gateway, no subscriptions." },
   ];
   const testimonials = [
-    { name: "Ananya R.", role: "Lost 6kg in 10 weeks", quote: "The weekly planner meant I never got bored — and never once ate the same dinner twice." },
-    { name: "Karthik M.", role: "Muscle gain, non-vegetarian", quote: "Seeing my protein target broken down meal by meal made hitting it effortless." },
+    { name: "Ananya R.", role: "Lost 6kg in 10 weeks", quote: "The weekly planner meant I never got bored and never once ate the same dinner twice." },
+    { name: "Karthik M.", role: "Muscle gain, non vegetarian", quote: "Seeing my protein target broken down meal by meal made hitting it effortless." },
     { name: "Priya S.", role: "Vegan, maintaining weight", quote: "First planner that actually understood vegan protein sources beyond just tofu." },
   ];
   const [openFaq, setOpenFaq] = useState(0);
@@ -576,7 +576,7 @@ function Landing({ onStart, theme, setTheme }) {
         <header className="hero">
           <HeroMesh />
           <div className={`hero-copy ${loaded ? "loaded" : ""}`}>
-            <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No sign-up · Instant results</div>
+            <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No signup · Instant results</div>
             <h1>Your plate,<br /><span className="hero-gradient-text">precisely planned.</span></h1>
             <p className="hero-sub">
               Tell us your body and your goal. In seconds, NutriNavigator builds a full week of meals
@@ -610,7 +610,7 @@ function Landing({ onStart, theme, setTheme }) {
               <SealBadge />
               <FactsPanel />
               <div className="floating-chip chip-cal" aria-hidden="true"><Flame size={14} /> ~2,150 kcal / day</div>
-              <div className="floating-chip chip-week" aria-hidden="true"><Calendar size={14} /> 7-day planner</div>
+              <div className="floating-chip chip-week" aria-hidden="true"><Calendar size={14} /> 7 day planner</div>
             </div>
           </div>
           <button
@@ -682,7 +682,7 @@ function Landing({ onStart, theme, setTheme }) {
         </Reveal>
 
         <footer className="footer">
-          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriNavigator <em>AI</em></span></div>
+          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriNavigator</span></div>
           <p>Educational tool only not a substitute for professional medical or dietary advice.</p>
           <p className="footer-copy">© {new Date().getFullYear()} NutriNavigator. Built for everyone, free of charge.</p>
         </footer>
