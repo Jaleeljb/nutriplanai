@@ -688,7 +688,7 @@ function Landing({ onStart, theme, setTheme }) {
             <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No signup · Instant results</div>
             <h1>Your plate,<br /><span className="hero-gradient-text">precisely planned.</span></h1>
             <p className="hero-sub">
-              Tell us your body and your goal. In seconds, Nutrifly builds a full week of meals —
+              Tell us about your body and your goal. In seconds, Nutrifly builds a full week of meals
               timed, measured, and matched to exactly how many calories and grams of protein you need.
             </p>
             <div className="hero-cta-row">
