@@ -1025,7 +1025,7 @@ function generatePDF(form, results, week, theme) {
   doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(21);
-  doc.text("NutriPlan AI", marginX, 15);
+  doc.text("Nutrifly", marginX, 15);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10.5);
   doc.text("Your Personalised 7-Day Diet Plan", marginX, 22.5);
