@@ -1,8 +1,8 @@
 # 🥗 NutriNavigator
 
-NutriPlan AI is a free, science-backed diet planning web application that helps users generate personalized 7-day meal plans based on their health profile and fitness goals. The application requires **no sign up**, making it simple and accessible for anyone to use.
+NutriNavigator is a free, science-backed diet planning web application that helps users generate personalized 7-day meal plans based on their health profile and fitness goals. The application requires **no sign up**, making it simple and accessible for anyone to use.
 
-Built with **React** and **Vite**, NutriPlan AI offers a modern, responsive, and user friendly experience across all devices.
+Built with **React** and **Vite**, NutriNavigator offers a modern, responsive, and user friendly experience across all devices.
 
 ---
 
