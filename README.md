@@ -1,6 +1,13 @@
 # NutriPlan AI
 
-A free, science-backed diet-planning app — no sign-up required. Built with React + Vite.
+A free, science backed diet planning app no signup required. Built with React + Vite.
+
+# Team Members
+
+1. Shivam Singh
+2. Sameer Vajir Khan
+3. Sairaj
+4. Abishaek
 
 ## What changed in this version
 - Removed the light/dark mode toggle and replaced it with a **premium theme picker** (Sage Garden, Ocean Mist, Sunset Bloom, Orchid Luxe) — your choice is remembered on your device.
