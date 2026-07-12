@@ -1,8 +1,8 @@
-# 🥗 NutriPlan AI
+# 🥗 NutriNavigator
 
-NutriPlan AI is a free, science-backed diet planning web application that helps users generate personalized 7-day meal plans based on their health profile and fitness goals. The application requires **no sign-up**, making it simple and accessible for anyone to use.
+NutriNavigator is a free, science backed diet planning web application that helps users generate personalized 7-day meal plans based on their health profile and fitness goals. The application requires **no sign up**, making it simple and accessible for anyone to use.
 
-Built with **React** and **Vite**, NutriPlan AI offers a modern, responsive, and user-friendly experience across all devices.
+Built with **React** and **Vite**, NutriNavigator offers a modern, responsive, and user-friendly experience across all devices.
 
 ---
 
@@ -14,37 +14,7 @@ Built with **React** and **Vite**, NutriPlan AI offers a modern, responsive, and
 - 🎨 Premium theme selection with persistent preferences
 - 📱 Fully responsive design for desktop, tablet, and mobile
 - ⚡ Fast and lightweight React + Vite application
-- 🔒 No account or sign-up required
-
----
-
-## 🚀 What's New
-
-This version includes several improvements and UI enhancements:
-
-- Replaced the Light/Dark mode toggle with a **Premium Theme Picker**, featuring:
-  - Sage Garden
-  - Ocean Mist
-  - Sunset Bloom
-  - Orchid Luxe
-
-  Your selected theme is automatically saved on your device.
-
-- Redesigned the Hero section with:
-  - Animated gradient headline
-  - Floating statistic cards
-  - Ambient background effects
-  - Smooth scroll indicator
-
-- Updated the diet form to collect **Height in Feet & Inches** instead of centimeters.
-
-- Improved PDF generation using **jsPDF**:
-  - Downloads the complete 7-day meal plan
-  - Generates multi-page PDFs
-  - Includes loading indicators
-  - Better error handling
-
-- Enhanced responsive layouts for a seamless experience across large desktops, laptops, tablets, and mobile devices.
+- 🔒 No account or sign up required
 
 ---
 
@@ -63,7 +33,7 @@ This version includes several improvements and UI enhancements:
 
 - Shivam Singh
 - Sameer Vajir Khan
-- Sairaj
+- Abhishek
 - Karan
 
 ---
@@ -134,4 +104,4 @@ This project is intended for educational and personal use.
 
 ## ❤️ Acknowledgements
 
-NutriPlan AI is designed to make healthy eating more accessible through science-backed dietary recommendations and a clean, modern user experience.
+NutriNavigator is designed to make healthy eating more accessible through science backed dietary recommendations and a clean, modern user experience.
