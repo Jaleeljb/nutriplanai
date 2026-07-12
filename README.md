@@ -1,4 +1,3 @@
-````markdown
 # 🥗 NutriPlan AI
 
 NutriPlan AI is a free, science-backed diet planning web application that helps users generate personalized 7-day meal plans based on their health profile and fitness goals. The application requires **no sign-up**, making it simple and accessible for anyone to use.
@@ -136,4 +135,3 @@ This project is intended for educational and personal use.
 ## ❤️ Acknowledgements
 
 NutriPlan AI is designed to make healthy eating more accessible through science-backed dietary recommendations and a clean, modern user experience.
-````
