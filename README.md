@@ -1,107 +1,31 @@
-# 🥗 NutriNavigator
+# NutriPlan AI
 
-NutriNavigator is a free, science backed diet planning web application that helps users generate personalized 7-day meal plans based on their health profile and fitness goals. The application requires **no sign up**, making it simple and accessible for anyone to use.
+A free, science-backed diet-planning app — no sign-up required. Built with React + Vite.
 
-Built with **React** and **Vite**, NutriNavigator offers a modern, responsive, and user-friendly experience across all devices.
+## What changed in this version
+- Removed the light/dark mode toggle and replaced it with a **premium theme picker** (Sage Garden, Ocean Mist, Sunset Bloom, Orchid Luxe) — your choice is remembered on your device.
+- Rebuilt the hero section with a gradient animated headline, floating stat chips, a softer ambient background, and a scroll cue.
+- The diet-plan form now asks for **height in feet & inches** instead of centimetres.
+- **Download PDF** now generates a real, multi-page PDF (via `jsPDF`) containing your full 7-day plan — not just the day you had open — and downloads it directly, with a loading state and error handling.
+- Rewrote the responsive breakpoints (large desktop → small phones) so the app adapts cleanly at every screen size.
 
----
-
-## ✨ Features
-
-- 🥗 Generate personalized 7-day diet plans
-- 📊 Science-backed nutrition recommendations
-- 📄 Download complete diet plans as multi-page PDFs
-- 🎨 Premium theme selection with persistent preferences
-- 📱 Fully responsive design for desktop, tablet, and mobile
-- ⚡ Fast and lightweight React + Vite application
-- 🔒 No account or sign up required
-
----
-
-## 🛠️ Tech Stack
-
-- React
-- Vite
-- JavaScript
-- HTML5
-- CSS3
-- jsPDF
-
----
-
-## 👥 Team Members
-
-- Shivam Singh
-- Sameer Vajir Khan
-- Abhishek
-- Karan
-
----
-
-## 📦 Installation
-
-Clone the repository and install dependencies:
-
+## Run it locally
 ```bash
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
+Then open the URL Vite prints (usually `http://localhost:5173`).
 
-Open the URL displayed in the terminal (typically):
-
-```
-http://localhost:5173
-```
-
----
-
-## 🏗️ Production Build
-
-Create a production build:
-
+## Build for production
 ```bash
 npm run build
+npm run preview   # optional: preview the production build locally
 ```
 
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
----
-
-## 🚀 Deployment
-
-### Deploy to Vercel
-
-Install the Vercel CLI:
-
+## Deploy to Vercel
+See the step-by-step instructions provided in chat, or run:
 ```bash
 npm install -g vercel
-```
-
-Deploy the application:
-
-```bash
 vercel
 ```
-
-Follow the prompts to complete the deployment.
-
----
-
-## 📄 License
-
-This project is intended for educational and personal use.
-
----
-
-## ❤️ Acknowledgements
-
-NutriNavigator is designed to make healthy eating more accessible through science backed dietary recommendations and a clean, modern user experience.
+from the project root and follow the prompts.
