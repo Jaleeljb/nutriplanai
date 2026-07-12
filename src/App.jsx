@@ -550,7 +550,7 @@ function Landing({ onStart, theme, setTheme }) {
     <div className="landing-root">
       <div className="page">
         <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
-          <div className="brand"><div className="brand-mark"><Leaf size={18} color="#fff" /></div><span>NutriPlan <em>AI</em></span></div>
+          <div className="brand"><div className="brand-mark"><Leaf size={18} color="#fff" /></div><span>NutriNavigator<em></em></span></div>
           <div className={`nav-links ${menuOpen ? "open" : ""}`}>
             <a href="#features" onClick={() => setMenuOpen(false)}>Features</a>
             <a href="#how" onClick={() => setMenuOpen(false)}>How it works</a>
@@ -579,7 +579,7 @@ function Landing({ onStart, theme, setTheme }) {
             <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No sign-up · Instant results</div>
             <h1>Your plate,<br /><span className="hero-gradient-text">precisely planned.</span></h1>
             <p className="hero-sub">
-              Tell us your body and your goal. In seconds, NutriPlan AI builds a full week of meals —
+              Tell us your body and your goal. In seconds, NutriNavigator builds a full week of meals
               timed, measured, and matched to exactly how many calories and grams of protein you need.
             </p>
             <div className="hero-cta-row">
@@ -682,9 +682,9 @@ function Landing({ onStart, theme, setTheme }) {
         </Reveal>
 
         <footer className="footer">
-          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriPlan <em>AI</em></span></div>
+          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriNavigator <em>AI</em></span></div>
           <p>Educational tool only — not a substitute for professional medical or dietary advice.</p>
-          <p className="footer-copy">© {new Date().getFullYear()} NutriPlan AI. Built for everyone, free of charge.</p>
+          <p className="footer-copy">© {new Date().getFullYear()} NutriNavigator. Built for everyone, free of charge.</p>
         </footer>
       </div>
     </div>
@@ -1043,14 +1043,14 @@ function Dashboard({ form, onReset, theme, setTheme }) {
   }
   function handleShare() {
     const summary = `NutriPlan AI — My Daily Targets\nCalories: ${results.dailyCalories} kcal\nProtein: ${results.proteinG}g | Carbs: ${results.carbG}g | Fat: ${results.fatG}g\nBMI: ${results.bmi} (${results.bmiCategory})`;
-    if (navigator.share) { navigator.share({ title: "My NutriPlan AI Diet Plan", text: summary }).catch(() => {}); }
+    if (navigator.share) { navigator.share({ title: "My NutriPlan AI Diet Plan", text: summary }).catch(() => { }); }
     else if (navigator.clipboard) { navigator.clipboard.writeText(summary); setToast("Summary copied to clipboard"); }
   }
 
   return (
     <div className="page dashboard-page">
       <nav className="nav no-print">
-        <div className="brand"><div className="brand-mark"><Leaf size={18} color="#fff" /></div><span>NutriPlan <em>AI</em></span></div>
+        <div className="brand"><div className="brand-mark"><Leaf size={18} color="#fff" /></div><span>NutriNavigator</span></div>
         <div className="nav-actions">
           <ThemeSwitcher theme={theme} setTheme={setTheme} />
           <button className="btn btn-ghost btn-sm" onClick={handleDownloadPdf} disabled={pdfLoading}>
@@ -1141,20 +1141,20 @@ function Dashboard({ form, onReset, theme, setTheme }) {
         {todaysMeals.map((m, i) => {
           const SlotIcon = SLOT_ICON[m.slot];
           return (
-          <div className="meal-card" key={m.slot} style={{ transitionDelay: `${i * 70}ms`, "--slot-color": SLOT_COLOR[m.slot] }}>
-            <div className="meal-card-head">
-              <div className="meal-head-left">
-                <span className="meal-icon"><SlotIcon size={16} /></span>
-                <div><span className="meal-slot">{m.label}</span><span className="meal-time">{m.time}</span></div>
+            <div className="meal-card" key={m.slot} style={{ transitionDelay: `${i * 70}ms`, "--slot-color": SLOT_COLOR[m.slot] }}>
+              <div className="meal-card-head">
+                <div className="meal-head-left">
+                  <span className="meal-icon"><SlotIcon size={16} /></span>
+                  <div><span className="meal-slot">{m.label}</span><span className="meal-time">{m.time}</span></div>
+                </div>
+                <span className="meal-cal">{m.cal} kcal</span>
               </div>
-              <span className="meal-cal">{m.cal} kcal</span>
+              <h4>{m.name}</h4>
+              <p className="meal-qty">{m.qty}</p>
+              <div className="macro-row"><span>P {m.p}g</span><span>C {m.c}g</span><span>F {m.f}g</span><span>Fiber {m.fiber}g</span></div>
+              <p className="meal-alt"><strong>Alternative:</strong> {m.alt}</p>
+              <p className="meal-reason">{m.reason}</p>
             </div>
-            <h4>{m.name}</h4>
-            <p className="meal-qty">{m.qty}</p>
-            <div className="macro-row"><span>P {m.p}g</span><span>C {m.c}g</span><span>F {m.f}g</span><span>Fiber {m.fiber}g</span></div>
-            <p className="meal-alt"><strong>Alternative:</strong> {m.alt}</p>
-            <p className="meal-reason">{m.reason}</p>
-          </div>
           );
         })}
       </section>
