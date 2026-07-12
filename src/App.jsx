@@ -30,7 +30,7 @@ const THEMES = [
   { key: "sunset", label: "Sunset Bloom", swatch: ["#C6491F", "#E8A33D", "#8E3B5D"] },
   { key: "orchid", label: "Orchid Luxe", swatch: ["#6B3F76", "#D9A441", "#B75C7A"] },
 ];
-const THEME_STORAGE_KEY = "nutriplan-theme";
+const THEME_STORAGE_KEY = "nutrifly-theme";
 
 // Same hex values as the CSS custom properties for each theme, converted to
 // RGB triples for jsPDF (which can't read CSS variables). Keeping these in
@@ -369,9 +369,9 @@ const ACTIVITY_LABEL = {
 
 const CONDITION_TIPS = {
   Diabetes: "Favour low glycemic-index foods, avoid sugary drinks, and space carbohydrates evenly through the day.",
-  Thyroid: "Include iodine and selenium-rich foods; keep meal timing consistent to support metabolism.",
+  Thyroid: "Include iodine and selenium rich foods; keep meal timing consistent to support metabolism.",
   "High Blood Pressure": "Limit added salt and processed foods; prioritise potassium-rich vegetables and fruits.",
-  Cholesterol: "Choose healthy unsaturated fats, increase soluble fibre, and limit deep-fried foods.",
+  Cholesterol: "Choose healthy unsaturated fats, increase soluble fibre, and limit deep fried foods.",
   PCOS: "Prioritise fibre and protein at each meal to support insulin sensitivity; limit refined sugar.",
   "Heart Disease": "Reduce saturated fat and sodium; emphasise omega-3 sources and whole grains.",
 };
@@ -382,7 +382,7 @@ const SMART_TIPS_BASE = [
   { icon: Moon, text: "Target 7–8 hours of quality sleep to support recovery and appetite control." },
   { icon: Salad, text: "Fill half your plate with vegetables at lunch and dinner." },
   { icon: X, text: "Limit sugary drinks and packaged fruit juices." },
-  { icon: X, text: "Cut back on deep-fried and heavily processed snacks." },
+  { icon: X, text: "Cut back on deep fried and heavily processed snacks." },
 ];
 
 const MARQUEE_WORDS = [
@@ -527,7 +527,7 @@ function FactsPanel({ calories = 2150, protein = 35, carb = 45, fat = 20 }) {
   ];
   return (
     <div className="facts-panel">
-      <div className="facts-eyebrow">Daily Values <span>— Your Plate</span></div>
+      <div className="facts-eyebrow">Daily Values <span> Your Plate</span></div>
       <div className="facts-rule thick" />
       <div className="facts-cal-row">
         <span className="facts-cal-label">Calories</span>
@@ -544,7 +544,7 @@ function FactsPanel({ calories = 2150, protein = 35, carb = 45, fat = 20 }) {
         </div>
       ))}
       <div className="facts-rule thick" />
-      <p className="facts-footnote">*Illustrative split — your exact numbers are calculated after the form.</p>
+      <p className="facts-footnote">Your exact numbers are calculated after the form.</p>
     </div>
   );
 }
@@ -636,17 +636,17 @@ function Landing({ onStart, theme, setTheme }) {
   }, []);
 
   const features = [
-    { icon: Sparkles, title: "Science-Backed Numbers", body: "BMI, BMR and TDEE calculated with the Mifflin-St Jeor equation — the same standard dietitians use." },
-    { icon: Utensils, title: "A Full Week, Never Repeated", body: "Six meal slots a day, seven distinct days — built from a real Indian-forward food library." },
+    { icon: Sparkles, title: "Science-Backed Numbers", body: "BMI, BMR and TDEE calculated with the Mifflin-St Jeor equation the same standard dietitians use." },
+    { icon: Utensils, title: "A Full Week, Never Repeated", body: "Six meal slots a day, seven distinct days built from a real Indian-forward food library." },
     { icon: Activity, title: "Built Around Your Body", body: "Every gram of protein, carb and fat is tuned to your goal, activity level, and lifestyle." },
     { icon: ShieldCheck, title: "Nothing To Sign Up For", body: "No accounts, no passwords, no data stored anywhere. Close the tab and it's gone." },
   ];
   const faqs = [
-    { q: "Do I need to create an account?", a: "No. NutriPlan AI works instantly for every visitor — no login, no email, no OTP." },
+    { q: "Do I need to create an account?", a: "No. Nutrifly works instantly for every visitor no login, no email, no OTP." },
     { q: "Is my data stored anywhere?", a: "No. Everything is calculated in your browser for this session only and is never saved to a server." },
     { q: "What formula is used for calories?", a: "We use the Mifflin-St Jeor equation for BMR, then apply standard activity multipliers to estimate your TDEE." },
     { q: "Can I use this if I have a medical condition?", a: "We include general guidance for common conditions, but always consult a doctor or registered dietitian for medical advice." },
-    { q: "Is this app free?", a: "Completely free — no ads, no payment gateway, no subscriptions." },
+    { q: "Is this app free?", a: "Completely free no ads, no payment gateway, no subscriptions." },
   ];
   const testimonials = [
     { name: "Ananya R.", role: "Lost 6kg in 10 weeks", quote: "The weekly planner meant I never got bored — and never once ate the same dinner twice." },
@@ -659,7 +659,7 @@ function Landing({ onStart, theme, setTheme }) {
     <div className="landing-root">
       <div className="page">
         <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
-          <div className="brand"><div className="brand-mark"><Leaf size={18} color="#fff" /></div><span>NutriPlan <em>AI</em></span></div>
+          <div className="brand"><div className="brand-mark"><Leaf size={18} color="#fff" /></div><span>Nutrifly</span></div>
           <div className={`nav-links ${menuOpen ? "open" : ""}`}>
             <a href="#features" onClick={() => setMenuOpen(false)}>Features</a>
             <a href="#how" onClick={() => setMenuOpen(false)}>How it works</a>
@@ -685,15 +685,15 @@ function Landing({ onStart, theme, setTheme }) {
         <header className="hero">
           <HeroMesh />
           <div className={`hero-copy ${loaded ? "loaded" : ""}`}>
-            <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No sign-up · Instant results</div>
+            <div className="eyebrow"><Sparkles size={14} className="eyebrow-spark" /> Free · No signup · Instant results</div>
             <h1>Your plate,<br /><span className="hero-gradient-text">precisely planned.</span></h1>
             <p className="hero-sub">
-              Tell us your body and your goal. In seconds, NutriPlan AI builds a full week of meals —
+              Tell us your body and your goal. In seconds, Nutrifly builds a full week of meals —
               timed, measured, and matched to exactly how many calories and grams of protein you need.
             </p>
             <div className="hero-cta-row">
               <button className="btn btn-primary btn-lg" onClick={onStart}>Generate My Diet Plan <ArrowRight size={18} /></button>
-              <span className="hero-note">Takes under 2 minutes · No email required</span>
+              <span className="hero-note">Under 2 minutes · No email required</span>
             </div>
             <div className="hero-badges">
               <span><Check size={14} /> No login</span>
@@ -738,9 +738,9 @@ function Landing({ onStart, theme, setTheme }) {
         <Reveal as="section" className="section" id="how">
           <h2 className="section-title">Three steps to your week of meals</h2>
           <div className="steps-grid">
-            <div className="panel-card"><span className="step-num">Body</span><h3>Tell us about you</h3><p>Age, height, weight, activity level and dietary preference — four short steps.</p></div>
+            <div className="panel-card"><span className="step-num">Body</span><h3>Tell us about you</h3><p>Age, height, weight, activity level and dietary preference four short steps.</p></div>
             <div className="panel-card"><span className="step-num">Science</span><h3>We calculate your numbers</h3><p>BMI, BMR, TDEE, and precise macro targets using the Mifflin-St Jeor equation.</p></div>
-            <div className="panel-card"><span className="step-num">Plate</span><h3>Get your full week</h3><p>Seven days, six meal slots, zero repeats — with alternatives for every dish.</p></div>
+            <div className="panel-card"><span className="step-num">Plate</span><h3>Get your full week</h3><p>Seven days, six meal slots, zero repeats with alternatives for every dish.</p></div>
           </div>
         </Reveal>
 
@@ -791,9 +791,9 @@ function Landing({ onStart, theme, setTheme }) {
         </Reveal>
 
         <footer className="footer">
-          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriPlan <em>AI</em></span></div>
-          <p>Educational tool only — not a substitute for professional medical or dietary advice.</p>
-          <p className="footer-copy">© {new Date().getFullYear()} NutriPlan AI. Built for everyone, free of charge.</p>
+          <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>Nutrifly</span></div>
+          <p>Educational tool only not a substitute for professional medical or dietary advice.</p>
+          <p className="footer-copy">© {new Date().getFullYear()} Nutrifly. Built for everyone, free of charge.</p>
         </footer>
       </div>
     </div>
@@ -998,7 +998,7 @@ function generatePDF(form, results, week, theme) {
     doc.setFontSize(8);
     doc.setTextColor(...MUTED);
     doc.setFont("helvetica", "normal");
-    doc.text("NutriPlan AI - Educational tool only, not a substitute for professional medical advice.", marginX, pageH - 9);
+    doc.text("Nutrifly - Educational tool only, not a substitute for professional medical advice.", marginX, pageH - 9);
     doc.text(`Page ${page}`, pageW - marginX, pageH - 9, { align: "right" });
   }
   // Only breaks to a new page when the next block genuinely won't fit —
@@ -1228,15 +1228,15 @@ function Dashboard({ form, onReset, theme, setTheme }) {
     }, 30);
   }
   function handleShare() {
-    const summary = `NutriPlan AI — My Daily Targets\nCalories: ${results.dailyCalories} kcal\nProtein: ${results.proteinG}g | Carbs: ${results.carbG}g | Fat: ${results.fatG}g\nBMI: ${results.bmi} (${results.bmiCategory})`;
-    if (navigator.share) { navigator.share({ title: "My NutriPlan AI Diet Plan", text: summary }).catch(() => {}); }
+    const summary = `Nutrifly — My Daily Targets\nCalories: ${results.dailyCalories} kcal\nProtein: ${results.proteinG}g | Carbs: ${results.carbG}g | Fat: ${results.fatG}g\nBMI: ${results.bmi} (${results.bmiCategory})`;
+    if (navigator.share) { navigator.share({ title: "My Nutrifly Diet Plan", text: summary }).catch(() => { }); }
     else if (navigator.clipboard) { navigator.clipboard.writeText(summary); setToast("Summary copied to clipboard"); }
   }
 
   return (
     <div className="page dashboard-page">
       <nav className="nav no-print">
-        <div className="brand"><div className="brand-mark"><Leaf size={18} color="#fff" /></div><span>NutriPlan <em>AI</em></span></div>
+        <div className="brand"><div className="brand-mark"><Leaf size={18} color="#fff" /></div><span>Nutrifly</span></div>
         <div className="nav-actions">
           <ThemeSwitcher theme={theme} setTheme={setTheme} />
           <button className="btn btn-ghost btn-sm" onClick={handleDownloadPdf} disabled={pdfLoading}>
@@ -1327,20 +1327,20 @@ function Dashboard({ form, onReset, theme, setTheme }) {
         {todaysMeals.map((m, i) => {
           const SlotIcon = SLOT_ICON[m.slot];
           return (
-          <div className="meal-card" key={m.slot} style={{ transitionDelay: `${i * 70}ms`, "--slot-color": SLOT_COLOR[m.slot] }}>
-            <div className="meal-card-head">
-              <div className="meal-head-left">
-                <span className="meal-icon"><SlotIcon size={16} /></span>
-                <div><span className="meal-slot">{m.label}</span><span className="meal-time">{m.time}</span></div>
+            <div className="meal-card" key={m.slot} style={{ transitionDelay: `${i * 70}ms`, "--slot-color": SLOT_COLOR[m.slot] }}>
+              <div className="meal-card-head">
+                <div className="meal-head-left">
+                  <span className="meal-icon"><SlotIcon size={16} /></span>
+                  <div><span className="meal-slot">{m.label}</span><span className="meal-time">{m.time}</span></div>
+                </div>
+                <span className="meal-cal">{m.cal} kcal</span>
               </div>
-              <span className="meal-cal">{m.cal} kcal</span>
+              <h4>{m.name}</h4>
+              <p className="meal-qty">{m.qty}</p>
+              <div className="macro-row"><span>P {m.p}g</span><span>C {m.c}g</span><span>F {m.f}g</span><span>Fiber {m.fiber}g</span></div>
+              <p className="meal-alt"><strong>Alternative:</strong> {m.alt}</p>
+              <p className="meal-reason">{m.reason}</p>
             </div>
-            <h4>{m.name}</h4>
-            <p className="meal-qty">{m.qty}</p>
-            <div className="macro-row"><span>P {m.p}g</span><span>C {m.c}g</span><span>F {m.f}g</span><span>Fiber {m.fiber}g</span></div>
-            <p className="meal-alt"><strong>Alternative:</strong> {m.alt}</p>
-            <p className="meal-reason">{m.reason}</p>
-          </div>
           );
         })}
       </section>
