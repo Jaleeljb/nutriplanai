@@ -584,7 +584,7 @@ function Landing({ onStart, theme, setTheme }) {
             </p>
             <div className="hero-cta-row">
               <button className="btn btn-primary btn-lg" onClick={onStart}>Generate My Diet Plan <ArrowRight size={18} /></button>
-              <span className="hero-note">Takes under 2 minutes · No email required</span>
+              <span className="hero-note">Under 2 minutes · No email required</span>
             </div>
             <div className="hero-badges">
               <span><Check size={14} /> No login</span>
@@ -629,9 +629,9 @@ function Landing({ onStart, theme, setTheme }) {
         <Reveal as="section" className="section" id="how">
           <h2 className="section-title">Three steps to your week of meals</h2>
           <div className="steps-grid">
-            <div className="panel-card"><span className="step-num">Body</span><h3>Tell us about you</h3><p>Age, height, weight, activity level and dietary preference — four short steps.</p></div>
-            <div className="panel-card"><span className="step-num">Science</span><h3>We calculate your numbers</h3><p>BMI, BMR, TDEE, and precise macro targets using the Mifflin-St Jeor equation.</p></div>
-            <div className="panel-card"><span className="step-num">Plate</span><h3>Get your full week</h3><p>Seven days, six meal slots, zero repeats — with alternatives for every dish.</p></div>
+            <div className="panel-card"><span className="step-num">Body</span><h3>Tell us about you</h3><p>Age, height, weight, activity level and dietary preference four short steps.</p></div>
+            <div className="panel-card"><span className="step-num">Science</span><h3>We calculate your numbers</h3><p>BMI, BMR, TDEE, and precise macro targets using the Mifflin St Jeor equation.</p></div>
+            <div className="panel-card"><span className="step-num">Plate</span><h3>Get your full week</h3><p>Seven days, six meal slots, zero repeats with alternatives for every dish.</p></div>
           </div>
         </Reveal>
 
@@ -683,7 +683,7 @@ function Landing({ onStart, theme, setTheme }) {
 
         <footer className="footer">
           <div className="brand"><div className="brand-mark"><Leaf size={16} color="#fff" /></div><span>NutriNavigator <em>AI</em></span></div>
-          <p>Educational tool only — not a substitute for professional medical or dietary advice.</p>
+          <p>Educational tool only not a substitute for professional medical or dietary advice.</p>
           <p className="footer-copy">© {new Date().getFullYear()} NutriNavigator. Built for everyone, free of charge.</p>
         </footer>
       </div>
